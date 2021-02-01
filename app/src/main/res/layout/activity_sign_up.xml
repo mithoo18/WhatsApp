@@ -8,6 +8,7 @@
     android:background="@color/teal_700"
     android:gravity="center"
     android:orientation="vertical"
+    android:padding="15dp"
     tools:context=".SignUpActivity">
 
     <LinearLayout
@@ -29,7 +30,7 @@
             app:srcCompat="@drawable/ic_whatsapp" />
 
         <EditText
-            android:id="@+id/editTextTextPersonName"
+            android:id="@+id/userName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
@@ -40,7 +41,7 @@
             android:padding="9dp" />
 
         <EditText
-            android:id="@+id/editTextTextEmailAddress"
+            android:id="@+id/etEmail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
@@ -52,7 +53,7 @@
             android:padding="9dp" />
 
         <EditText
-            android:id="@+id/editTextTextPassword"
+            android:id="@+id/etPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
@@ -64,22 +65,25 @@
             android:padding="9dp" />
 
         <TextView
-            android:id="@+id/textView"
+            android:id="@+id/haveAccount"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="right"
             android:layout_weight="1"
             android:gravity="center"
-            android:text="Already Have Account" />
+            android:text="Already Have Account"
+            android:textColor="@color/white" />
 
         <Button
-            android:id="@+id/button"
-            android:layout_width="150dp"
+            android:id="@+id/btn_signUp"
+            android:layout_width="130dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
             android:layout_weight="1"
             android:background="#00E676"
-            android:text="SIGN UP" />
+            android:text="SIGN UP"
+            app:cornerRadius="5dp" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -88,21 +92,37 @@
             android:orientation="horizontal">
 
             <Button
-                android:id="@+id/button2"
+                android:id="@+id/btn_google"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginRight="2dp"
                 android:layout_weight="1"
+                android:backgroundTint="@color/white"
                 android:drawableLeft="@drawable/ic_google"
-                android:text="Google" />
+                android:text="Google"
+                android:textColor="#191616"
+                app:cornerRadius="5dp" />
 
             <Button
-                android:id="@+id/button3"
+                android:id="@+id/btn_facebook"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:backgroundTint="@color/fb_color"
                 android:drawableLeft="@drawable/ic_facebook"
-                android:text="Facebook" />
+                android:text="Facebook"
+                app:cornerRadius="5dp" />
         </LinearLayout>
+
+        <TextView
+            android:id="@+id/signUpPhone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="Sign Up With Phone"
+            android:textColor="@color/white" />
 
     </LinearLayout>
 
