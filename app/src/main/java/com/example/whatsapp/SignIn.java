@@ -27,7 +27,7 @@ public class SignIn extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         //HIDE TOOLBAR
-        getSupportActionBar().hide();
+       // getSupportActionBar().hide();
 
         //BINDING VIEW - No Need To Define Again And Again From Layout TO A Main Acivity
         binding = ActivitySignInBinding.inflate(getLayoutInflater());

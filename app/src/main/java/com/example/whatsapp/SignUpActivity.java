@@ -1,4 +1,4 @@
-package com.example.whatsapp;
+ package com.example.whatsapp;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
