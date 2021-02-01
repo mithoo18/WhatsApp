@@ -3,6 +3,7 @@ package com.example.whatsapp;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.renderscript.ScriptGroup;
 import android.view.View;
@@ -21,6 +22,7 @@ public class SignUpActivity extends AppCompatActivity {
     ActivitySignUpBinding binding;
     private FirebaseAuth auth;
     FirebaseDatabase database;
+    ProgressDialog progressDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,12 +34,23 @@ public class SignUpActivity extends AppCompatActivity {
         getSupportActionBar().hide();
         auth = FirebaseAuth.getInstance();
         database = FirebaseDatabase.getInstance();
+
+
+        progressDialog = new ProgressDialog(SignUpActivity.this);
+        progressDialog.setTitle("Creating Account");
+        progressDialog.setMessage("We're Creating Your Account");
+
+
+
         binding.btnSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                progressDialog.show();
+
                 auth.createUserWithEmailAndPassword(binding.etEmail.getText().toString(),binding.etPassword.getText().toString()).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
+                        progressDialog.dismiss();
                         if (task.isSuccessful()) {
                             //STORING DATA IN MODEL CLASS 'USER'->'FIREBASE-REALTIME'
                             //USER
@@ -47,9 +60,6 @@ public class SignUpActivity extends AppCompatActivity {
                             String id = task.getResult().getUser().getUid();
                             //DATA -> STORE ACCORDING TO ID
                             database.getReference().child("Users").child(id).setValue(user);
-
-
-
                             Toast.makeText(SignUpActivity.this, "Task Completed", Toast.LENGTH_SHORT).show();
                         }
                         else {
