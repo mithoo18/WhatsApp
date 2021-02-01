@@ -20,6 +20,14 @@ public class Users {
     //Empty Constructor
     public Users(){}
 
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
     //For SignUp
     public Users(String userName,String mail,String password) {
         this.userName = userName;

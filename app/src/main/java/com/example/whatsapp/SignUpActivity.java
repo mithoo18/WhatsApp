@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.renderscript.ScriptGroup;
 import android.view.View;
@@ -32,16 +33,18 @@ public class SignUpActivity extends AppCompatActivity {
         binding = ActivitySignUpBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         getSupportActionBar().hide();
+
+        //Firebase
         auth = FirebaseAuth.getInstance();
         database = FirebaseDatabase.getInstance();
 
-
+        //PROGRESS
         progressDialog = new ProgressDialog(SignUpActivity.this);
         progressDialog.setTitle("Creating Account");
         progressDialog.setMessage("We're Creating Your Account");
 
 
-
+        //ONCLICK
         binding.btnSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -54,8 +57,7 @@ public class SignUpActivity extends AppCompatActivity {
                         if (task.isSuccessful()) {
                             //STORING DATA IN MODEL CLASS 'USER'->'FIREBASE-REALTIME'
                             //USER
-                            Users user = new Users(binding.etuserName.getText().toString(),binding.etEmail.getText().toString(),
-                                    binding.etPassword.getText().toString());
+                            Users user = new Users(binding.etuserName.getText().toString(),binding.etEmail.getText().toString(),binding.etPassword.getText().toString());
                             //GET ID
                             String id = task.getResult().getUser().getUid();
                             //DATA -> STORE ACCORDING TO ID
@@ -67,6 +69,13 @@ public class SignUpActivity extends AppCompatActivity {
                         }
                     }
 
+                });
+                binding.signInView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Intent intent = new Intent(SignUpActivity.this,SignIn.class);
+                        startActivity(intent);
+                    }
                 });
             }
         });
