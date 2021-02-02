@@ -1,22 +1,21 @@
  package com.example.whatsapp;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
+ import android.app.ProgressDialog;
+ import android.content.Intent;
+ import android.os.Bundle;
+ import android.view.View;
+ import android.widget.Toast;
 
-import android.app.ProgressDialog;
-import android.content.Intent;
-import android.os.Bundle;
-import android.renderscript.ScriptGroup;
-import android.view.View;
-import android.widget.Toast;
+ import androidx.annotation.NonNull;
+ import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.whatsapp.Model.Users;
-import com.example.whatsapp.databinding.ActivitySignUpBinding;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.AuthResult;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.database.FirebaseDatabase;
+ import com.example.whatsapp.Model.Users;
+ import com.example.whatsapp.databinding.ActivitySignUpBinding;
+ import com.google.android.gms.tasks.OnCompleteListener;
+ import com.google.android.gms.tasks.Task;
+ import com.google.firebase.auth.AuthResult;
+ import com.google.firebase.auth.FirebaseAuth;
+ import com.google.firebase.database.FirebaseDatabase;
 
 public class SignUpActivity extends AppCompatActivity {
 
@@ -70,17 +69,16 @@ public class SignUpActivity extends AppCompatActivity {
                     }
 
                 });
-                binding.signInView.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        Intent intent = new Intent(SignUpActivity.this,SignIn.class);
-                        startActivity(intent);
-                    }
-                });
             }
         });
-
-
+        //LOGIC SIGNUP->SIGIN
+        binding.signInView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(SignUpActivity.this,SignIn.class);
+                startActivity(intent);
+            }
+        });
 
     }
 }
