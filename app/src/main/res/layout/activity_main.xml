@@ -8,19 +8,20 @@
     android:orientation="vertical">
 
     <com.google.android.material.tabs.TabLayout
-        android:layout_height="match_parent"
-        android:layout_width="56dp"
+        android:id="@+id/tablayout"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
         android:background="@color/colorPrimary"
         android:elevation="12dp"
-        app:tabIndicator="@color/white"
+        app:tabIndicatorColor="@color/white"
         app:tabSelectedTextColor="@color/white"
         app:tabMaxWidth="0dp"
         app:tabGravity="fill"
-        app:tabMode="fixed">
+        app:tabMode="fixed"
+        />
 
-        <androidx.viewpager.widget.ViewPager
-            android:layout_height="match_parent"
-            android:layout_width="match_parent">
-        </androidx.viewpager.widget.ViewPager>
-    </com.google.android.material.tabs.TabLayout>
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/viewpager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 </LinearLayout>

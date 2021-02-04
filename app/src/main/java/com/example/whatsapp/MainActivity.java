@@ -10,6 +10,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.whatsapp.Adapter.FragmentAdapter;
 import com.example.whatsapp.databinding.ActivityMainBinding;
 import com.google.firebase.auth.FirebaseAuth;
 
@@ -27,6 +28,12 @@ public class MainActivity extends AppCompatActivity {
 
         //FIREBASE
         auth = FirebaseAuth.getInstance();
+        //BIND VIEWPAGER TABLAYOUT
+        /*Tab Layout
+              View Pager(USING Adapter)
+                    Fragment */
+        binding.viewpager.setAdapter(new FragmentAdapter(getSupportFragmentManager()));
+        binding.tablayout.setupWithViewPager(binding.viewpager);
 
     }
 
