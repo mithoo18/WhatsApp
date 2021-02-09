@@ -18,7 +18,10 @@ public class UsersAdapter extends RecyclerView.Adapter<UsersAdapter.ViewHolder>{
     ArrayList<Users> list;
     Context context;
 
+    //PROBLEM-----
+    public UsersAdapter(ArrayList<Users> list, Context context) {
 
+    }
 
     @NonNull
     @Override
@@ -31,7 +34,8 @@ public class UsersAdapter extends RecyclerView.Adapter<UsersAdapter.ViewHolder>{
         Users users = list.get(position);
         //VIEWHOLDER -> GENERAL IMAGE
         Picasso.get().load(users.getProfilepic()).placeholder(R.drawable.ic_user).into(holder.image);
-        holder.userName.setText();
+        holder.userName.setText(users.getUserName());
+
     }
 
     @Override
@@ -46,8 +50,8 @@ public class UsersAdapter extends RecyclerView.Adapter<UsersAdapter.ViewHolder>{
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             image = itemView.findViewById(R.id.profile_image);
-            image = itemView.findViewById(R.id.userNameList);
-            image = itemView.findViewById(R.id.LastMessage);
+            userName = itemView.findViewById(R.id.userNameList);
+            lastMessage = itemView.findViewById(R.id.LastMessage);
         }
     }
 
