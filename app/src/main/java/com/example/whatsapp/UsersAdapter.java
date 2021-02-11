@@ -18,9 +18,9 @@ public class UsersAdapter extends RecyclerView.Adapter<UsersAdapter.ViewHolder>{
     ArrayList<Users> list;
     Context context;
 
-    //PROBLEM-----
     public UsersAdapter(ArrayList<Users> list, Context context) {
-
+        this.list = list;
+        this.context = context;
     }
 
     @NonNull
@@ -29,6 +29,7 @@ public class UsersAdapter extends RecyclerView.Adapter<UsersAdapter.ViewHolder>{
         View view = LayoutInflater.from(context).inflate(R.layout.sample_show_user,parent,false);
         return new ViewHolder(view);
     }
+
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Users users = list.get(position);
@@ -39,8 +40,9 @@ public class UsersAdapter extends RecyclerView.Adapter<UsersAdapter.ViewHolder>{
     }
 
     @Override
-    public int getItemCount() {
-        return 0;
+    public int getItemCount()
+    {
+        return list.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder

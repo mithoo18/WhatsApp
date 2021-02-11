@@ -61,7 +61,7 @@ public class Users {
         this.mail = mail;
     }
 
-    public String getUserId() {
+    public String getUserId(String key) {
         return userId;
     }
 
