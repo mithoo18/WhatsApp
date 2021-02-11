@@ -8,7 +8,15 @@ public class Users {
     String lastMessage;
     String password;
 
-    public Users(String profilepic, String userName, String mail, String userId, String lastMessage,String password) {
+    public String getUserId() {
+        return userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
+
+    public Users(String profilepic, String userName, String mail, String userId, String lastMessage, String password) {
         this.profilepic = profilepic;
         this.userName = userName;
         this.mail = mail;
@@ -59,14 +67,6 @@ public class Users {
 
     public void setMail(String mail) {
         this.mail = mail;
-    }
-
-    public String getUserId(String key) {
-        return userId;
-    }
-
-    public void setUserId(String userId) {
-        this.userId = userId;
     }
 
     public String getLastMessage() {
